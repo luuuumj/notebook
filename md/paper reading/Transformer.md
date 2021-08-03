@@ -2,6 +2,10 @@
 
 https://zhuanlan.zhihu.com/p/308301901
 
+[TOC]
+
+
+
 # 1. Attention is all your need
 
 ### 1. 什么叫attention
@@ -13,12 +17,23 @@ https://zhuanlan.zhihu.com/p/308301901
 将Query(通常是向量)和4个Key(和Q长度相同的向量)分别计算相似性，然后经过softmax得到q和4个key相似性的概率权重分布，然后对应权重乘以Value(和Q长度相同的向量)，最后相加即可得到包含注意力的attention值输出。
 
 ~~~~Note
-non-local就是这么来的
+non-local就是这么来的，形式基本一样
 ~~~~
+
+~~~~markdown
+关于query，key，value的理解：https://zhuanlan.zhihu.com/p/148737297
+从图1可以引出另外一种理解，也可以将Attention机制看作一种软寻址（Soft Addressing）:
+Source可以看作存储器内存储的内容，元素由地址Key和值Value组成，当前有个Key=Query的查询，目的是取出存储器中对应的Value值，即Attention数值。通过Query和存储器内元素Key的地址进行相似性比较来寻址，之所以说是软寻址，指的不像一般寻址只从存储内容里面找出一条内容，而是可能从每个Key地址都会取出内容，取出内容的重要性根据Query和Key的相似性来决定，之后对Value进行加权求和，这样就可以取出最终的Value值，也即Attention值。所以不少研究人员将Attention机制看作软寻址的一种特例，这也是非常有道理的。
+
+~~~~
+
+另一种形式的理解：
+
+![v2-ae1625293164d0ec41cfc0be7487b0ba_720w](../material/v2-ae1625293164d0ec41cfc0be7487b0ba_720w.jpg)
 
 ### 2. Transformer：
 
-![img](../material/v2-ffe28891154105a83ca3ae505fe9948e_1440w.jpg)
+<img src="../material/v2-ffe28891154105a83ca3ae505fe9948e_1440w.jpg" alt="img" style="zoom: 50%;" />
 
 ### 3. 翻译任务流程：
 
@@ -38,12 +53,16 @@ non-local就是这么来的
 
 ### 1. VIT Vision Transformer
 
+**Vision Transformer** (AN IMAGE IS WORTH 16X16 WORDS: Transformer FOR IMAGE RECOGNITION AT SCALE
+
 1. 图片分块和降维：因为transformer的输入需要序列，所以最简单做法就是把图片切分为patch，然后拉成序列即可。 假设输入图片大小是256x256，打算分成64个patch，每个patch是32x32像素
 2. 位置编码也是必不可少的，长度应该是1024，这里做的比较简单，没有采用sincos编码，而是直接设置为可学习，效果差不多。可视化结果很不错：
 
 ![img](../material/v2-b050450f9b6d66e4e4f54ff90be9a9cd_1440w.jpg)
 
 ### 2. Detr
+
+**DETR**(End-to-End Object Detection with Transformers)
 
 1. 流程：
 
@@ -57,5 +76,40 @@ non-local就是这么来的
 
 
 
-paper reading
+#### paper reading
+
+https://arxiv.org/pdf/2005.12872.pdf
+
+1. Set Prediction：There is no canonical（权威） deep learning model to directly predict sets. The basic set prediction task is multilabel classification.  The first difficulty in these tasks is to avoid near-duplicates. ***, the loss function should be invariant by a permutation***
+2. formulate：
+   1. $\hat{\sigma}=\underset{\sigma \in \mathfrak{S}_{N}}{\arg \min } \sum_{i}^{N} \mathcal{L}_{\operatorname{match}}\left(y_{i}, \hat{y}_{\sigma(i)}\right)$
+   2. $\mathcal{L}_{\text {Hungarian }}(y, \hat{y})=\sum_{i=1}^{N}\left[-\log \hat{p}_{\hat{\sigma}(i)}\left(c_{i}\right)+\mathbb{1}_{\left\{c_{i} \neq \varnothing\right\}} \mathcal{L}_{\text {box }}\left(b_{i}, \hat{b}_{\hat{\sigma}}(i)\right)\right]$
+   3. 第一步通过最小化匹配损失（也就是带权二分图匹配，hungarian算法）得到固定的匹配关系即 $\hat{\sigma}$ ，第二步在通过固定的匹配关系回传梯度。
+3. Ablations：
+   1. 不加encoder会掉3.9个点，另外可视化效果来看encoder以及可以将instance分隔开
+   2. decoder部分，layer较少时，随着layer的增加AP也不断提升，layer的增加也使得网络具备了抑制duplicate预测的能力；另外通过可视化发现decoder部分关注的主要是更加local的特征
+   3. FFN的增加能涨2.3个点，其可视为1x1 conv，使encoder与 [Attention Augmented Convolutional Networks](https://discourse.brainpp.cn/t/topic/11192)类似
+   4. positional encoding非常重要，全部去掉会掉7.8个点，但只去掉encoder部分的只掉1.3个点
+   5. Loss方面， l1 与GIoU结合能达到最好效果
+
+#### code理解
+
+先inference一遍计算两个set全量匹配的cost，包括class，boxes，giou等，合理猜测这个cost是n*m的（pred_cnt * gt_cnt），然后调用scipy 的 linear_sum_assignment函数，得到带权二分图匹配最优解 indices。利用indices回传常规的检测loss：
+
+~~~~python
+loss_map = {
+  'labels': self.loss_labels,
+  'cardinality': self.loss_cardinality,
+  'boxes': self.loss_boxes,
+  'masks': self.loss_masks
+} 
+~~~~
+
+不太理解的是240L，auxiliary loss 是什么意思？
+
+https://github.com/facebookresearch/detr/blob/master/models/matcher.py
+
+
+
+
 

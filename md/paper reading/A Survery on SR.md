@@ -17,9 +17,9 @@ $$
 \hat{\mathbf{x}}=\Phi^{-1}\left(\mathbf{y}, \theta_{\zeta}\right)
 $$
 
-##categories:
+## categories:
 
-###1. Linear networks
+### 1. Linear networks
 
 #### Early Upsampling Designs
 
@@ -30,7 +30,7 @@ $$
 - DnCNN: like SRCNN with residual
 - IRCNN:Image Restoration CNN; a denoiser which can solve SR,deblurring,denoising
 
-####Late Upsampling Designs
+#### Late Upsampling Designs
 
 LR input, HR output
 
@@ -71,7 +71,7 @@ large scaling factors, 2× followed by 4× and so on
 - SCN: sparse code; After the LISTA network, the original highresolution patches are reconstructed by multiplying the sparse code and high-resolution dictionary in the successive linear layer
 - LapSRN: Deep Laplacian pyramid super-resolution network; The output of the first sub-network is a residue of 2×, the second sub-network provides a 4× residue;
 
-###5. Densely Connected Networks
+### 5. Densely Connected Networks
 
 DenseNet  architecture
 

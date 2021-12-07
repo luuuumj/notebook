@@ -1,12 +1,5 @@
 [TOC]
 
-# Q&A:
-
-1. fpn怎么work的
-2. top-down bottom-up什么意思
-
-
-
 
 
 # Note:
@@ -45,13 +38,13 @@ paper link: <https://arxiv.org/pdf/1807.05511.pdf>
 
 ​	Region proposal generation -> CNN based extract feature -> Classification and localization
 
-![屏幕快照 2020-03-31 20.47.18](../material/屏幕快照 2020-03-31 20.47.18.png)
+![屏幕快照 2020-03-31 20.47.18](../../material/屏幕快照 2020-03-31 20.47.18.png)
 
 ### SPP-net:
 
 ​	A spatial pyramid pooling layer :  project a feature map to a fixed-length vector。feature length: 256x(1^2+2^2+4^2)
 
-![屏幕快照 2020-03-31 20.47.12](../material/屏幕快照 2020-03-31 20.47.12.png)
+![屏幕快照 2020-03-31 20.47.12](../../material/屏幕快照 2020-03-31 20.47.12.png)
 
 ### Fast R-CNN:
 

@@ -12,7 +12,7 @@ https://zhuanlan.zhihu.com/p/308301901
 
 所有的attention都可以抽象成如下形式：
 
-![img](../material/v2-b40f05b5957b7f7cef7a10e4c97932a2_1440w.jpg)
+![img](../../material/v2-b40f05b5957b7f7cef7a10e4c97932a2_1440w.jpg)
 
 将Query(通常是向量)和4个Key(和Q长度相同的向量)分别计算相似性，然后经过softmax得到q和4个key相似性的概率权重分布，然后对应权重乘以Value(和Q长度相同的向量)，最后相加即可得到包含注意力的attention值输出。
 
@@ -29,11 +29,11 @@ Source可以看作存储器内存储的内容，元素由地址Key和值Value组
 
 另一种形式的理解：
 
-![v2-ae1625293164d0ec41cfc0be7487b0ba_720w](../material/v2-ae1625293164d0ec41cfc0be7487b0ba_720w.jpg)
+![v2-ae1625293164d0ec41cfc0be7487b0ba_720w](../../material/v2-ae1625293164d0ec41cfc0be7487b0ba_720w.jpg)
 
 ### 2. Transformer：
 
-<img src="../material/v2-ffe28891154105a83ca3ae505fe9948e_1440w.jpg" alt="img" style="zoom: 50%;" />
+<img src="../../material/v2-ffe28891154105a83ca3ae505fe9948e_1440w.jpg" alt="img" style="zoom: 50%;" />
 
 ### 3. 翻译任务流程：
 
@@ -58,7 +58,7 @@ Source可以看作存储器内存储的内容，元素由地址Key和值Value组
 1. 图片分块和降维：因为transformer的输入需要序列，所以最简单做法就是把图片切分为patch，然后拉成序列即可。 假设输入图片大小是256x256，打算分成64个patch，每个patch是32x32像素
 2. 位置编码也是必不可少的，长度应该是1024，这里做的比较简单，没有采用sincos编码，而是直接设置为可学习，效果差不多。可视化结果很不错：
 
-![img](../material/v2-b050450f9b6d66e4e4f54ff90be9a9cd_1440w.jpg)
+![img](../../material/v2-b050450f9b6d66e4e4f54ff90be9a9cd_1440w.jpg)
 
 ### 2. Detr
 

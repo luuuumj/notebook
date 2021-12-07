@@ -4,7 +4,7 @@
 
 将整个动态范围划分成若干个小区间（比如int8量化，共2**8 个区间）量化时，落入区间的信号值就用这个值代替。因为信号量是一维的，所以称为标量量化。
 
-<img src="../material/Center.png" alt="img" style="zoom:50%;" />
+<img src="../../material/Center.png" alt="img" style="zoom:50%;" />
 
 
 
@@ -12,7 +12,7 @@
 
 同理，矢量量化是对矢量进行量化，把矢量空间分成若干个小区间（比如k = 256，就是聚类个数），落在区间的信号值就用这个代表值（聚类中心）代替。
 
-<img src="../material/Center-20210308174433337.png" alt="img" style="zoom:50%;" />
+<img src="../../material/Center-20210308174433337.png" alt="img" style="zoom:50%;" />
 
 
 
@@ -22,7 +22,7 @@
 
 乘积量化是将矢量维度D分成m组，分别对m组内数据进行聚类，得到k个聚类中心，这样的好处是，1）可以并行求解。2）相比矢量量化可以增大表示空间
 
-![img](../material/v2-93b823dacda40456c4fb884e8a91f378_720w.png)
+![img](../../material/v2-93b823dacda40456c4fb884e8a91f378_720w.png)
 
 ### 三者关系
 

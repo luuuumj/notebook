@@ -24,7 +24,7 @@ emission_probability = {
 
 
 
-![An_example_of_HMM](../material/An_example_of_HMM.png)
+![An_example_of_HMM](../../material/An_example_of_HMM.png)
 
 
 
@@ -89,4 +89,4 @@ print(example())
 
 
 
-![Viterbi_animated_demo](../material/Viterbi_animated_demo.gif)
+![Viterbi_animated_demo](../../material/Viterbi_animated_demo.gif)

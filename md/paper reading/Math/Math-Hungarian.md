@@ -1,6 +1,6 @@
 https://zhuanlan.zhihu.com/p/96229700
 
-<img src="../material/v2-84370dc7e8a5510007c941d35b737c0e_1440w.jpg" alt="v2-84370dc7e8a5510007c941d35b737c0e_1440w" style="zoom: 50%;" />
+<img src="../../material/v2-84370dc7e8a5510007c941d35b737c0e_1440w.jpg" alt="v2-84370dc7e8a5510007c941d35b737c0e_1440w" style="zoom: 50%;" />
 
 遍历左边，每次循环能保证确定当前$B_{i}$ 是否能匹配到，如果返回True，cnt++，否则跳过。
 

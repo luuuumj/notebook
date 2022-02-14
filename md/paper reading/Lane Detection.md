@@ -57,7 +57,7 @@ lane detection leadboard https://paperswithcode.com/task/lane-detection
 </details>
 
 
-#### cvpr 2021：
+### cvpr 2021：
 
 **Focus on Local: Detecting Lane Marker from Bottom Up via Key Point（FOLO）**
 
@@ -71,7 +71,7 @@ lane detection leadboard https://paperswithcode.com/task/lane-detection
 
 
 
-#### WACV 2021:
+### WACV 2021:
 
 **End-to-end Lane Shape Prediction with Transformers (LSTR)**
 
@@ -80,7 +80,7 @@ lane detection leadboard https://paperswithcode.com/task/lane-detection
 
 
 
-#### arxiv :
+### arxiv :
 
 **Preprocessing Methods of Lane Detection and Tracking for Autonomous Driving :**
 
@@ -116,7 +116,7 @@ Lane detection and classi- fication using cascaded cnns.
 
 
 
-#### Perception (SLAM):
+### Perception (SLAM):
 
 **Pseudo-LiDAR from Visual Depth Estimation: Bridging the Gap in 3D Object Detection for Autonomous Driving**
 
@@ -131,7 +131,7 @@ Lane detection and classi- fication using cascaded cnns.
 
 
 
-#### reference
+### reference
 
 *   SCNN
     *   https://arxiv.org/pdf/1712.06080.pdf
@@ -344,9 +344,41 @@ code：https://github.com/cfzd/Ultra-Fast-Lane-Detection
 
 # Focus on Local: Detecting Lane Marker from Bottom Up via Key Point
 
+paper：https://arxiv.org/pdf/2105.13680.pdf
+
+code：无
+
+## TL;DR
+
+***FOLO: A bottom-up seg-based and row-wise lane detection method. Contrast to CondLane, takes semantic segmentation(or said to detects key points) first and then cluster them as instance***.
+
+## Methodology
+
+![截屏2022-02-07 14.44.03](../material/截屏2022-02-07 14.44.03.png)
+
+### Key point estimation (Heatmap)
+
+![截屏2022-02-07 15.10.22](../material/截屏2022-02-07 15.10.22.png)
+
+一个小trick，gt的生成也是利用gaussian kernel，区别是这里中心全部是1，边缘满足高斯。
+
+>   个人理解：所谓的key point estimation 和 binary semantic segmentation 的区别只是任务上的区别，形式上是一样的。segmentation一般来说比较连续，key point相对离散，二者都是单通道的HxW大小的output ，和gt做loss（一般都是BCE）
 
 
 
+### Local geometry construction (Offset)
+
+![截屏2022-02-07 15.37.16](../material/截屏2022-02-07 15.37.16.png)
+
+### Loss
+
+$$
+\text { Loss }=\text { Loss }_{h}+\lambda\left(\text { Loss }_{\uparrow}+\text { Loss }_{\downarrow}+\text { Loss }_{\rightarrow}\right)
+$$
+
+### Decoder for global geometry
+
+所谓的decoder 目的就是将heatmap上的key points 连起来，最naive的就是从最近处的一行开始，每次找下一行的 $\Delta x$和$\Delta y$    确定当前instance的下一个点，但显然这样成功率会比较低，且并没有很好利用 $-\Delta y$ 的信息。文中有一些greedy algorithm来解决这件事情。
 
 # CondLaneNet:a Top-to-down Lane Detection Framework Based on Conditional Convolution
 

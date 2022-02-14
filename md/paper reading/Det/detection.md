@@ -134,7 +134,7 @@ $$
 
 ## Yolox
 
-Paper：[https://arxiv.org/abs/2107.08430](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2107.08430)
+Paper：[https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
 
 Code：[https://github.com/Megvii-BaseD](https://link.zhihu.com/?target=https%3A//github.com/Megvii-BaseDetection/YOLOX)
 
@@ -156,7 +156,7 @@ Mosaic and Mixup (Strong)
 
 FCOS liked
 
-### Multi positives
+### Multi positives·	
 
 high quality predictions 也回传梯度，类似训练时的多峰fp，这种梯度是对模型有帮助的。
 

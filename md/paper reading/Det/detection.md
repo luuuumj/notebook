@@ -62,7 +62,7 @@ https://github.com/princeton-vl/CornerNet/blob/master/train.py
 
 ### Framework
 
-![截屏2021-11-29 14.36.58](../../material/截屏2021-11-29 14.36.58.png)
+![截屏2021-11-29 14.36.58](../../material/截屏2021-11-29%2014.36.58.png)
 
 embedding vector使相同目标的两个顶点（左上角和右下角）距离最短（其实就是配对）， offsets用于调整生成更加紧密的边界定位框。heatmaps 包含 C 个 channels（C是目标的类别，没有background channel）；每个 channel 是二进制 mask，表示相应类别的顶点位置。对于每个顶点，只有一个 ground-truth，其他位置都是负样本。
 
@@ -76,7 +76,7 @@ hourglass 很重要，resnet就不行。
 
 ### Corner pooling
 
-![截屏2021-11-29 14.30.04](../../material/截屏2021-11-29 14.30.04.png)
+![截屏2021-11-29 14.30.04](../../material/截屏2021-11-29%2014.30.04.png)
 
 ## CenterNet
 
@@ -110,13 +110,13 @@ The center-ness ranges from 0 to 1 and is thus trained with BCE, The loss is add
 $$
 \text { centerness }^{*}=\sqrt{\frac{\min \left(l^{*}, r^{*}\right)}{\max \left(l^{*}, r^{*}\right)} \times \frac{\min \left(t^{*}, b^{*}\right)}{\max \left(t^{*}, b^{*}\right)}}
 $$
-![截屏2021-11-26 17.19.38](../../material/截屏2021-11-26 17.19.38-7919103.png)
+![截屏2021-11-26 17.19.38](../../material/截屏2021-11-26%2017.19.38-7919103.png)
 
 ### Ablation study
 
 主要是centerness起作用。
 
-![截屏2021-11-26 17.19.38](../../material/截屏2021-11-26 17.20.36.png)
+![截屏2021-11-26 17.19.38](../../material/截屏2021-11-26%2017.20.36.png)
 
 
 

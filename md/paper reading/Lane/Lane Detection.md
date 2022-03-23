@@ -232,7 +232,7 @@ Q: 是不是key points 也算一类方法？
 
     车道线检测存在的挑战：(a)多种多样的车道线表示方式；(b)车道线相关的结构信息；(c)车道线的多种属性。
 
-    ![SGnet](../material/SGnet.png)
+    ![SGnet](../../material/SGnet.png)
 
 ## Solution
 
@@ -241,13 +241,13 @@ Q: 是不是key points 也算一类方法？
 
 ### Lane Representation
 
-<img src="../material/截屏2021-08-18 14.47.05.png" alt="截屏2021-08-18 14.47.05" style="zoom:67%;" />
+<img src="../../material/截屏2021-08-18 14.47.05.png" alt="截屏2021-08-18 14.47.05" style="zoom:67%;" />
 
 形式和LaneATT里面的Anchor是一样的，只不过LaneATT label形式还是点（输出靠Anchor+offset来确定），而SGNet的标签就改成了确定的Line+offset
 
 ### VP-based Anchor
 
-<img src="../material/截屏2021-08-18 14.47.19.png" alt="截屏2021-08-18 14.47.19" style="zoom:67%;" />
+<img src="../../material/截屏2021-08-18 14.47.19.png" alt="截屏2021-08-18 14.47.19" style="zoom:67%;" />
 
 ### Variable Loss
 
@@ -284,7 +284,7 @@ F1-measure,  treat each lane as a line with 30 pixel width and compute the IOU
 
 VP-based Anchor，lane-level relation，pixel-level perception，Image-level Attention
 
-![屏幕快照 2021-08-03 14.17.53](../material/屏幕快照 2021-08-03 14.17.53.png)
+![屏幕快照 2021-08-03 14.17.53](../../material/屏幕快照%202021-08-03%2014.17.53.png)
 
 
 
@@ -312,7 +312,7 @@ reference： https://video-discourse.iap.wh-a.brainpp.cn/t/topic/7241
 
 ## PPL
 
-![屏幕快照 2021-08-11 15.12.55](../material/屏幕快照 2021-08-11 15.12.55.png)
+![屏幕快照 2021-08-11 15.12.55](../../material/屏幕快照%202021-08-11%2015.12.55.png)
 
 ## Anchor-based feature pooling
 
@@ -326,7 +326,7 @@ the RoI pooling layer (used to generate fixed-size features) is not necessary fo
 
 理解起来，feature pooling就是线采样，直接得到一个feature vector。而这样就不需要所谓的RO pooling了，因为是等宽的（width = 1），长度只需要截断就行了。（具体的需要看代码）>> 更正，长度并没有截断，而是取完整的h 【[link](https://github.com/lucastabelini/LaneATT/blob/2f8583ba14eccba05e6779668bc3a38bc751984a/lib/models/laneatt.py#L235)】
 
-<img src="../material/屏幕快照 2021-08-03 16.53.24.png" alt="屏幕快照 2021-08-03 16.53.24" style="zoom: 67%;" />
+<img src="../../material/屏幕快照 2021-08-03 16.53.24.png" alt="屏幕快照 2021-08-03 16.53.24" style="zoom: 67%;" />
 
 ## Conclusion
 
@@ -354,11 +354,11 @@ code：无
 
 ## Methodology
 
-![截屏2022-02-07 14.44.03](../material/截屏2022-02-07 14.44.03.png)
+![截屏2022-02-07 14.44.03](../../material/截屏2022-02-07%2014.44.03.png)
 
 ### Key point estimation (Heatmap)
 
-![截屏2022-02-07 15.10.22](../material/截屏2022-02-07 15.10.22.png)
+![截屏2022-02-07 15.10.22](../../material/截屏2022-02-07%2015.10.22.png)
 
 一个小trick，gt的生成也是利用gaussian kernel，区别是这里中心全部是1，边缘满足高斯。
 
@@ -368,7 +368,7 @@ code：无
 
 ### Local geometry construction (Offset)
 
-![截屏2022-02-07 15.37.16](../material/截屏2022-02-07 15.37.16.png)
+![截屏2022-02-07 15.37.16](../../material/截屏2022-02-07%2015.37.16.png)
 
 ### Loss
 
@@ -403,7 +403,7 @@ reference：https://zhuanlan.zhihu.com/p/393167538
 
 ## Structure
 
-![屏幕快照 2021-08-11 11.59.01](../material/屏幕快照 2021-08-11 11.59.01.png)
+![屏幕快照 2021-08-11 11.59.01](../../material/屏幕快照%202021-08-11%2011.59.01.png)
 
 
 
@@ -421,7 +421,7 @@ reference：https://zhuanlan.zhihu.com/p/393167538
 
 2.  Vertical Range
 
-    <img src="../material/屏幕快照 2021-08-11 11.43.28.png" alt="屏幕快照 2021-08-11 11.43.28" style="zoom: 67%;" />
+    <img src="../../material/屏幕快照 2021-08-11 11.43.28.png" alt="屏幕快照 2021-08-11 11.43.28" style="zoom: 67%;" />
 
     $\ell_{\text {range }}= \sum_{i}(-y^i_{gt}log(v_{i}) - (1-y^i_{gt})log(1-v_{i}))$
 

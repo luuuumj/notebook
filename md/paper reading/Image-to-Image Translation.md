@@ -41,7 +41,7 @@ https://blog.csdn.net/qq_37995260/article/details/90510052
 
 ## StarGAN
 
-<img src="../material/屏幕快照 2021-02-03 20.55.49.png" alt="屏幕快照 2021-02-03 20.55.49" style="zoom: 67%;" /><img src="../material/屏幕快照 2021-02-03 22.20.15.png" alt="屏幕快照 2021-02-03 22.20.15" style="zoom:50%;" />
+<img src="../material/屏幕快照%202021-02-03%2020.55.49.png" alt="屏幕快照 2021-02-03 20.55.49" style="zoom: 67%;" /><img src="../material/屏幕快照%202021-02-03%2022.20.15.png" alt="屏幕快照 2021-02-03 22.20.15" style="zoom:50%;" />
 
 * Adversarial Loss:    $\begin{aligned}
   \mathcal{L}_{a d v}=& \mathbb{E}_{x}\left[\log D_{s r c}(x)\right]+\
@@ -60,7 +60,7 @@ https://blog.csdn.net/qq_37995260/article/details/90510052
 
 
 
-<img src="../material/屏幕快照 2021-02-03 22.20.28.png" alt="屏幕快照 2021-02-03 22.20.28" style="zoom:50%;" />
+<img src="../material/屏幕快照%202021-02-03%2022.20.28.png" alt="屏幕快照 2021-02-03 22.20.28" style="zoom:50%;" />
 
 * Adversarial objective $\begin{aligned} \mathcal{L}_{a d v}=& \mathbb{E}_{\mathbf{x}, y}\left[\log D_{y}(\mathbf{x})\right]+  \mathbb{E}_{\mathbf{x}, \widetilde{y}, \mathbf{z}}\left[\log \left(1-D_{\widetilde{y}}(G(\mathbf{x}, \widetilde{\mathbf{s}}))\right)\right] \end{aligned}$
 * Style reconstruction  $\mathcal{L}_{\text {sty }}=\mathbb{E}_{\mathbf{x}, \widetilde{y}, \mathbf{z}}\left[\left\|\widetilde{\mathbf{s}}-E_{\widetilde{y}}(G(\mathbf{x}, \widetilde{\mathbf{s}}))\right\|_{1}\right]$

@@ -43,7 +43,7 @@ The goal of distance metric learning is to learn an embedding representation suc
 1. Sensitivity to initialization：TAP-TIDIMv2 shows significantly higher success rates in black-box impersonation attack
 2. Sensitivity to $\epsilon$ : 随着 $\epsilon$ 增大会提高成功率，但再大就会过拟合，反而降低成功率
 
-![屏幕快照 2021-06-30 18.12.23](../material/屏幕快照 2021-06-30 18.12.23.png)
+![屏幕快照 2021-06-30 18.12.23](../material/屏幕快照%202021-06-30%2018.12.23.png)
 
 
 

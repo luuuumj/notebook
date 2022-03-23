@@ -45,7 +45,7 @@ https://github.com/facebookresearch/detr/blob/master/models/matcher.py
 
 >   某种位置+类别的先验，见原始paper中，关于queries的可视化结果
 
-![截屏2022-03-16 11.26.35](../../material/截屏2022-03-16 11.26.35.png)
+![截屏2022-03-16 11.26.35](../../material/截屏2022-03-16%2011.26.35.png)
 
 3.  Q,K,V在detr里面的shape到底是什么样的？
 
@@ -73,7 +73,7 @@ code：https://github.com/WangYueFt/detr3d
 
 ## Framework:
 
-![截屏2022-03-15 15.47.00](../../material/截屏2022-03-15 15.47.00.png)
+![截屏2022-03-15 15.47.00](../../material/截屏2022-03-15%2015.47.00.png)
 
 
 
@@ -118,13 +118,13 @@ paper：https://arxiv.org/pdf/2203.05625v1.pdf
 
 ## PETR vs DETR3D
 
-![截屏2022-03-16 11.35.01](../../material/截屏2022-03-16 11.35.01.png)
+![截屏2022-03-16 11.35.01](../../material/截屏2022-03-16%2011.35.01.png)
 
 
 
 ## Method
 
-![截屏2022-03-16 11.40.40](../../material/截屏2022-03-16 11.40.40.png)
+![截屏2022-03-16 11.40.40](../../material/截屏2022-03-16%2011.40.40.png)
 
 
 

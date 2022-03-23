@@ -66,7 +66,7 @@ Patches Are All You Need?
 
 different operations replacing the self-attention and MLP operations. For example, MLP-Mixer replaces them both with MLPs applied across different dimensions
 
-![截屏2022-03-17 17.15.09](../../material/截屏2022-03-17 17.15.09.png)
+![截屏2022-03-17 17.15.09](../../material/截屏2022-03-17%2017.15.09.png)
 
 ## ConViT 
 
@@ -82,7 +82,7 @@ Soft inductive biases / Hard inductive biases
 
  a self-attention based model, which has a lower floor but a higher ceiling
 
-![屏幕快照 2021-06-17 10.53.33](../../material/屏幕快照 2021-06-17 10.53.33.png)
+![屏幕快照 2021-06-17 10.53.33](../../material/屏幕快照%202021-06-17%2010.53.33.png)
 
 
 
@@ -102,7 +102,7 @@ $$
 $$
 根据原作者来说这样只能加速收敛，最高点反而还不如DeiT，于是做了改进，两项先各自softmax然后做了个gate相加，gate里面的权重是可学的。
 
-![屏幕快照 2021-06-17 14.30.44](../../material/屏幕快照 2021-06-17 14.30.44.png)
+![屏幕快照 2021-06-17 14.30.44](../../material/屏幕快照%202021-06-17%2014.30.44.png)
 
 
 
@@ -158,7 +158,7 @@ Paper: https://arxiv.org/pdf/2110.02178.pdf
 
 
 
-![截屏2021-10-26 11.47.28](../../material/截屏2021-10-26 11.47.28.png)
+![截屏2021-10-26 11.47.28](../../material/截屏2021-10-26%2011.47.28.png)
 
 
 

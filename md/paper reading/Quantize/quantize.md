@@ -1,6 +1,6 @@
 1. calibration set 对w的scale有没有影响
 2. loss的梯度 为什么全是正的，默认是l2 loss的梯度
-   ![738dd1cd745a9209148b497940d66b7a59556e7c](/Users/lumingjie/Documents/notebook/md/material/738dd1cd745a9209148b497940d66b7a59556e7c-5352187.png)
+   ![738dd1cd745a9209148b497940d66b7a59556e7c](../../material/738dd1cd745a9209148b497940d66b7a59556e7c-5352187.png)
 3. 
 
 

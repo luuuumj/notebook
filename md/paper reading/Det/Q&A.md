@@ -15,3 +15,13 @@
 
 1.  IOU loss 和 smooth L1 的区别？ 以及改进版的GIOU等等
 2.  为什么模型输出的centerness是conv出来的，而不是用同样的lrtb算出来的呢？
+
+
+
+
+
+
+
+
+
+label assign ： IOU -> atss -> anchor free ( 9 -> 2 -> 1)

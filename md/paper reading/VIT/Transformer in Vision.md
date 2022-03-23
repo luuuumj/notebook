@@ -15,7 +15,36 @@
 * [ ] local self attention 
 * [ ] 
 
+多种VIT变体
 
+https://zhuanlan.zhihu.com/p/452246732
+
+-   [Vision Transformer - Pytorch](https://github.com/lucidrains/vit-pytorch#vision-transformer---pytorch)
+-   [Install](https://github.com/lucidrains/vit-pytorch#install)
+-   [Usage](https://github.com/lucidrains/vit-pytorch#usage)
+-   [Parameters](https://github.com/lucidrains/vit-pytorch#parameters)
+-   [Distillation](https://github.com/lucidrains/vit-pytorch#distillation)
+-   [Deep ViT](https://github.com/lucidrains/vit-pytorch#deep-vit)
+-   [CaiT](https://github.com/lucidrains/vit-pytorch#cait)
+-   [Token-to-Token ViT](https://github.com/lucidrains/vit-pytorch#token-to-token-vit)
+-   [CCT](https://github.com/lucidrains/vit-pytorch#cct)
+-   [Cross ViT](https://github.com/lucidrains/vit-pytorch#cross-vit)
+-   [PiT](https://github.com/lucidrains/vit-pytorch#pit)
+-   [LeViT](https://github.com/lucidrains/vit-pytorch#levit)
+-   [CvT](https://github.com/lucidrains/vit-pytorch#cvt)
+-   [Twins SVT](https://github.com/lucidrains/vit-pytorch#twins-svt)
+-   [CrossFormer](https://github.com/lucidrains/vit-pytorch#crossformer)
+-   [RegionViT](https://github.com/lucidrains/vit-pytorch#regionvit)
+-   [NesT](https://github.com/lucidrains/vit-pytorch#nest)
+-   [MobileViT](https://github.com/lucidrains/vit-pytorch#mobilevit)
+-   [Masked Autoencoder](https://github.com/lucidrains/vit-pytorch#masked-autoencoder)
+-   [Simple Masked Image Modeling](https://github.com/lucidrains/vit-pytorch#simple-masked-image-modeling)
+-   [Masked Patch Prediction](https://github.com/lucidrains/vit-pytorch#masked-patch-prediction)
+-   [Adaptive Token Sampling](https://github.com/lucidrains/vit-pytorch#adaptive-token-sampling)
+-   [Patch Merger](https://github.com/lucidrains/vit-pytorch#patch-merger)
+-   [Vision Transformer for Small Datasets](https://github.com/lucidrains/vit-pytorch#vision-transformer-for-small-datasets)
+-   [Dino](https://github.com/lucidrains/vit-pytorch#dino)
+-   [Accessing Attention](https://github.com/lucidrains/vit-pytorch#accessing-attention)
 
 
 
@@ -26,6 +55,18 @@
 ## ViT
 
 The results of ViT on image classification are encouraging, but its architecture is unsuitable for use as a general-purpose backbone network on dense vision tasks or when the input image resolution is high, due to its low-resolution feature maps and the quadratic increase in complexity with image size.
+
+## MLP-Mixer
+
+## ConvMixer
+
+https://arxiv.org/pdf/2201.09792.pdf
+
+Patches Are All You Need?
+
+different operations replacing the self-attention and MLP operations. For example, MLP-Mixer replaces them both with MLPs applied across different dimensions
+
+![截屏2022-03-17 17.15.09](../../material/截屏2022-03-17 17.15.09.png)
 
 ## ConViT 
 

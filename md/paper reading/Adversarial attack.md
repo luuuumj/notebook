@@ -45,3 +45,7 @@ The goal of distance metric learning is to learn an embedding representation suc
 
 ![屏幕快照 2021-06-30 18.12.23](../material/屏幕快照 2021-06-30 18.12.23.png)
 
+
+
+
+

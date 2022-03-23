@@ -31,6 +31,8 @@ Source可以看作存储器内存储的内容，元素由地址Key和值Value组
 
 ![v2-ae1625293164d0ec41cfc0be7487b0ba_720w](../../material/v2-ae1625293164d0ec41cfc0be7487b0ba_720w.jpg)
 
+![截屏2022-03-17 17.22.34](../../material/截屏2022-03-17 17.22.34.png)
+
 ### 2. Transformer：
 
 <img src="../../material/v2-ffe28891154105a83ca3ae505fe9948e_1440w.jpg" alt="img" style="zoom: 50%;" />
@@ -76,40 +78,4 @@ Source可以看作存储器内存储的内容，元素由地址Key和值Value组
 
 
 
-#### paper reading
-
-https://arxiv.org/pdf/2005.12872.pdf
-
-1. Set Prediction：There is no canonical（权威） deep learning model to directly predict sets. The basic set prediction task is multilabel classification.  The first difficulty in these tasks is to avoid near-duplicates. ***, the loss function should be invariant by a permutation***
-2. formulate：
-   1. $\hat{\sigma}=\underset{\sigma \in \mathfrak{S}_{N}}{\arg \min } \sum_{i}^{N} \mathcal{L}_{\operatorname{match}}\left(y_{i}, \hat{y}_{\sigma(i)}\right)$
-   2. $\mathcal{L}_{\text {Hungarian }}(y, \hat{y})=\sum_{i=1}^{N}\left[-\log \hat{p}_{\hat{\sigma}(i)}\left(c_{i}\right)+\mathbb{1}_{\left\{c_{i} \neq \varnothing\right\}} \mathcal{L}_{\text {box }}\left(b_{i}, \hat{b}_{\hat{\sigma}}(i)\right)\right]$
-   3. 第一步通过最小化匹配损失（也就是带权二分图匹配，hungarian算法）得到固定的匹配关系即 $\hat{\sigma}$ ，第二步在通过固定的匹配关系回传梯度。
-3. Ablations：
-   1. 不加encoder会掉3.9个点，另外可视化效果来看encoder以及可以将instance分隔开
-   2. decoder部分，layer较少时，随着layer的增加AP也不断提升，layer的增加也使得网络具备了抑制duplicate预测的能力；另外通过可视化发现decoder部分关注的主要是更加local的特征
-   3. FFN的增加能涨2.3个点，其可视为1x1 conv，使encoder与 [Attention Augmented Convolutional Networks](https://discourse.brainpp.cn/t/topic/11192)类似
-   4. positional encoding非常重要，全部去掉会掉7.8个点，但只去掉encoder部分的只掉1.3个点
-   5. Loss方面， l1 与GIoU结合能达到最好效果
-
-#### code理解
-
-先inference一遍计算两个set全量匹配的cost，包括class，boxes，giou等，合理猜测这个cost是n*m的（pred_cnt * gt_cnt），然后调用scipy 的 linear_sum_assignment函数，得到带权二分图匹配最优解 indices。利用indices回传常规的检测loss：
-
-~~~~python
-loss_map = {
-  'labels': self.loss_labels,
-  'cardinality': self.loss_cardinality,
-  'boxes': self.loss_boxes,
-  'masks': self.loss_masks
-} 
-~~~~
-
-不太理解的是240L，auxiliary loss 是什么意思？
-
-https://github.com/facebookresearch/detr/blob/master/models/matcher.py
-
-
-
-
-
+详见 Transformer in Vision.md

@@ -184,7 +184,7 @@ Questions：
 
 # Video-ppt Studying
 
- [Lane Detection.pdf](../material/asserts/Lane Detection.pdf) 
+ [Lane Detection.pdf](../../material/asserts/Lane Detection.pdf) 
 
 Q: 基于分割的，channel 上需要每个都出一个logit吗，是多分类还是多个二分类？
 
@@ -466,4 +466,6 @@ code: https://nv-tlabs.github.io/lift-splat-shoot/
 
 
 
+
+# 
 

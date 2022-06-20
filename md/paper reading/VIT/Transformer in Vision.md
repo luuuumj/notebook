@@ -52,21 +52,45 @@ https://zhuanlan.zhihu.com/p/452246732
 
 [TOC]
 
-## ViT
+# ViT
 
 The results of ViT on image classification are encouraging, but its architecture is unsuitable for use as a general-purpose backbone network on dense vision tasks or when the input image resolution is high, due to its low-resolution feature maps and the quadratic increase in complexity with image size.
 
+
+
+keywords： patches,  self-attention, MLP, large receptive filed
+
+# Conv meets ViT
+
+下面的几个都是ViT 和 conv的结合，可以理解处于中间形态。想要分析到底什么东西才是 all your need
+
 ## MLP-Mixer
+
+paper： https://arxiv.org/pdf/2105.01601.pdf
+
+An all-MLP Architecture， 只用MLP就能达到sota，说明self-attention 并不本质
+
+![截屏2022-03-29 16.28.32](../../material/%E6%88%AA%E5%B1%8F2022-03-29%2016.28.32.png)
+
+做法就是，在patches上，patches间和channel间都做mlp，这样利用fc代替原始attention增加patches间的关联。
 
 ## ConvMixer
 
-https://arxiv.org/pdf/2201.09792.pdf
+paper： https://arxiv.org/pdf/2201.09792.pdf
 
 Patches Are All You Need?
 
-different operations replacing the self-attention and MLP operations. For example, MLP-Mixer replaces them both with MLPs applied across different dimensions
+patches are all your need！
+
+**Isotropic architectures**. Vision transformers have inspired a new paradigm of “isotropic” architectures, i.e., those with equal size and shape throughout the network, which use patch embeddings for the first layer. ***These models look similar to repeated transformer-encoder blocks (Vaswani et al., 2017) with different operations replacing the self-attention and MLP operations. For example, MLP-Mixer (Tolstikhin et al., 2021) replaces them both with MLPs applied across different dimensions (i.e., spatial and channel location mixing);*** ResMLP (Touvron et al., 2021a) is a data-efficient variation on this theme. CycleMLP (Chen et al., 2021), gMLP (Liu et al., 2021a), and vision permutator (Hou et al., 2021), replace one or both blocks with various novel operations. These are all quite performant, which is typically attributed to the novel choice of operations. In contrast, Melas-Kyriazi (2021) proposed an MLP-based isotropic vision model, and also hypothesized patch embeddings could be behind its performance. ResMLP tried replacing its linear interaction layer with (small-kernel) convolution and achieved good performance, but kept its MLP-based cross-channel layer and did not explore convolutions further. ***As our investigation of ConvMixers suggests, these works may conflate the effect of the new operations (like self-attention and MLPs) with the effect of the use of patch embeddings and the resulting isotropic architecture.***
 
 ![截屏2022-03-17 17.15.09](../../material/截屏2022-03-17%2017.15.09.png)
+
+
+
+这里利用卷积替代ViT里面的block（self-attention, mlp），能够达到sota，看起来就像是pathes embedding + conv，具体方法就是将patches再reshape成2维的，但这里就相当于很多次下采样的feature了。再用较大的kernel来depthwise和pointwise的卷积
+
+所谓patches更本质，其实就是扩大感受野，消除local的conductive bias
 
 ## ConViT 
 
@@ -176,6 +200,11 @@ motivation： 在原始mbv2上加入一些long-range，non-local的模块，
 
     *   Computational cost. The computational cost of multi-headed self-attention in MobileViT and ViTs  is O(N2P d) and O(N2d)，However, in practice, MobileViT is more efficient than ViTs (Table 3; §4.3). We believe that this is because of similar reasons as for the light-weight design (discussed above)
 
+
+
+## large kernel
+
+[Largekernel](../Backbone/Large%20kernel.md)
 
 
 

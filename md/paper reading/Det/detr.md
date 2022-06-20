@@ -49,13 +49,9 @@ https://github.com/facebookresearch/detr/blob/master/models/matcher.py
 
 3.  Q,K,V在detr里面的shape到底是什么样的？
 
-    ~~~~python
-    
-    ~~~~
-
-    
-
-
+>   每层feature 是 m\*n\*d 的 QKV参数分别都是 m\*d\*d的，这样得到的QKV 还是m\*n\*d  的，所以所谓的fc，只是在每个样本（patch）里面自己embedding，只有在attention的时候才会出现 n*n的联系
+>
+>   注： cross-attention的时候 KV是从encoder里面拿出来的，只有Q是作为一个先验放在decoder的输入那里。Q一般是100*d（detr中）注意，attention中的output结果的shape是和Q保持一致的 $Q=\operatorname{softmax}\left(\frac{Q K^{\top}}{\sqrt{d_{k}}}\right) V$ ，所以self-attention中传递的也是Q，而不是直观意义理解的V
 
 # Deformable DETR
 

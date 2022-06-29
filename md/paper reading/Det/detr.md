@@ -112,6 +112,8 @@ $$
 
 paper：https://arxiv.org/pdf/2203.05625v1.pdf
 
+code：https://github.com/megvii-research/PETR
+
 ## PETR vs DETR3D
 
 ![截屏2022-03-16 11.35.01](../../material/截屏2022-03-16%2011.35.01.png)
@@ -131,3 +133,15 @@ paper：https://arxiv.org/pdf/2203.05625v1.pdf
 1.  detr中的position embedding 其实是和HxW拉成一维的feature一一对应的（这才是我理解的PE的意义，在一维中encdoe二维的信息），那这里的3d position embedding并没有和HxW一一对应，该怎么理解呢？
 
     >   一个解释是，输入的3D Coordinates是通过cam视野过滤之后的一个视锥，将这些坐标点过了两个fc（收敛后的结果可以想象成一个projection），其实是能看成一个3d投影2d的效果（主要是为了获取深度），这样和2D feature 相加就类比增加一个维度的信息。
+
+
+
+
+
+
+
+# PETRv2
+
+paper：https://arxiv.org/pdf/2206.01256.pdf
+
+code：https://github.com/megvii-research/PETR 同petr

@@ -6,7 +6,7 @@
 *   [ ] anchor-free 三部曲
 *   [ ] nms code，soft nms
 *   [ ] GIOU，CIOU
-*   [ ] RANSAC
+*   [x] RANSAC
 *   [ ] 卡尔曼滤波
 *   [ ] Face X-ray：https://github.com/Daisy-Zhang/Face-X-ray
 

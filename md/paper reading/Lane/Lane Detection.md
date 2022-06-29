@@ -447,25 +447,7 @@ reference：https://zhuanlan.zhihu.com/p/393167538
 
 
 
-# BEVDet: High-Performance Multi-Camera 3D Object Detection in Bird-Eye-View
-
-paper: https://arxiv.org/pdf/2112.11790.pdf
-
-缝合怪，主要工作可看LSS
-
-引申出3d检测（主要在感知领域）两个流派，1就是bevdet系列，利用相机内外参，将range view的feature 转换到bev（或者可以理解为3d），另一个流派是fcos3d，detr3d等，直接出obj的三维框信息。引申一点比如petr，会decode 3d position
 
 
 
-# Lift, Splat, Shoot: Encoding Images from Arbitrary Camera Rigs by Implicitly Unprojecting to 3D
-
-paper: https://arxiv.org/pdf/2008.05711.pdf
-
-code: https://nv-tlabs.github.io/lift-splat-shoot/
-
-
-
-
-
-# 
 

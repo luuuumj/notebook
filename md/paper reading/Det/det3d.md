@@ -65,7 +65,7 @@ paper： https://arxiv.org/pdf/2103.01100.pdf
 
 最后z的collapse也挺有意思的，通过\sigma(feature * p(z)) 将z collapse掉。得到bev的feature。
 
-
+![截屏2022-06-30 11.38.47](../../material/%E6%88%AA%E5%B1%8F2022-06-30%2011.38.47.png)
 
 # BEVdepth
 
